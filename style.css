@@ -158,7 +158,7 @@ button:hover {
   background-color: #2563eb;
 }
 
-/* Pulsante Reset leggermente diverso (opzionale) */
+/* Stile specifico per il pulsante Reset */
 .reset-btn {
   background-color: #bd1f1f;
 }
