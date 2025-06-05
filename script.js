@@ -8,7 +8,7 @@ function calcolaPagaOraria() {
   const pressioneFiscale = parseFloat(document.getElementById('pressione').value);
   const risultato = document.getElementById('risultato');
 
-  // Controlli di validità
+  // Validazione input
   if (isNaN(paga) || isNaN(ore) || ore < 0 || minuti < 0 || minuti >= 60) {
     risultato.textContent = "Inserisci valori validi.";
     return;
@@ -26,7 +26,7 @@ function calcolaPagaOraria() {
   const inpsMensile = includeINPS ? inpsTrimestrale / 3 : 0;
   const commercialistaMensile = includeCommercialista ? parcellaCommercialistaAnnua / 12 : 0;
 
-  // Parametri fiscali forfettario
+  // Coefficiente e aliquota forfettario
   const coefficienteRedditivita = 0.78;
   const aliquotaImposta = 0.15;
 
@@ -35,11 +35,11 @@ function calcolaPagaOraria() {
   let dettagli = '';
 
   if (usaPressioneFiscale && !isNaN(pressioneFiscale)) {
-    // Calcola con pressione fiscale
+    // Calcolo usando la pressione fiscale
     pagaNetta = paga * (1 - (pressioneFiscale / 100));
     dettagli += `<p>Pressione fiscale stimata: ${pressioneFiscale.toFixed(1)}%</p>`;
   } else {
-    // Calcolo INPS + imposta sostitutiva
+    // Calcolo dettagliato INPS + imposta sostitutiva
     const redditoImponibile = paga * coefficienteRedditivita;
     const impostaSostitutiva = redditoImponibile * aliquotaImposta;
     pagaNetta = paga - inpsMensile - impostaSostitutiva - commercialistaMensile;
