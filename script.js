@@ -1,3 +1,29 @@
+// Tutte le funzioni e i listener per i toggle devono partire solo dopo il caricamento del DOM
+document.addEventListener('DOMContentLoaded', () => {
+  const inpsToggle = document.getElementById('inpsCheck');
+  const commercialistaToggle = document.getElementById('commercialistaCheck');
+  const pressioneToggle = document.getElementById('pressioneFiscaleCheck');
+
+  inpsToggle.addEventListener('change', () => {
+    if (inpsToggle.checked) {
+      pressioneToggle.checked = false;
+    }
+  });
+
+  commercialistaToggle.addEventListener('change', () => {
+    if (commercialistaToggle.checked) {
+      pressioneToggle.checked = false;
+    }
+  });
+
+  pressioneToggle.addEventListener('change', () => {
+    if (pressioneToggle.checked) {
+      inpsToggle.checked = false;
+      commercialistaToggle.checked = false;
+    }
+  });
+});
+
 function calcolaPagaOraria() {
   const paga = parseFloat(document.getElementById('paga').value);
   const ore = parseFloat(document.getElementById('ore').value);
@@ -73,24 +99,3 @@ function resetForm() {
   document.getElementById('pressione').value = '24';
   document.getElementById('risultato').innerHTML = '';
 }
-
-// Gestione toggles esclusivi:
-// Se si attiva Pressione fiscale, si disattivano INPS e Commercialista; viceversa.
-const inpsToggle = document.getElementById('inpsCheck');
-const commercialistaToggle = document.getElementById('commercialistaCheck');
-const pressioneToggle = document.getElementById('pressioneFiscaleCheck');
-
-inpsToggle.addEventListener('change', () => {
-  if (inpsToggle.checked) pressioneToggle.checked = false;
-});
-
-commercialistaToggle.addEventListener('change', () => {
-  if (commercialistaToggle.checked) pressioneToggle.checked = false;
-});
-
-pressioneToggle.addEventListener('change', () => {
-  if (pressioneToggle.checked) {
-    inpsToggle.checked = false;
-    commercialistaToggle.checked = false;
-  }
-});
