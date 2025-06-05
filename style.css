@@ -158,6 +158,15 @@ button:hover {
   background-color: #2563eb;
 }
 
+/* Pulsante Reset leggermente diverso (opzionale) */
+.reset-btn {
+  background-color: #bd1f1f;
+}
+
+.reset-btn:hover {
+  background-color: #a11818;
+}
+
 .risultato {
   background-color: #2a2a2a;
   padding: 1em;
