@@ -3,28 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Paga Oraria</title>
-
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="icon" type="image/png" sizes="32x32"
-        href="https://cdn-icons-png.flaticon.com/512/2721/2721615.png" />
-  <link rel="apple-touch-icon"
-        href="https://cdn-icons-png.flaticon.com/512/2721/2721615.png" />
-
-  <!-- Collegamento al CSS esterno -->
+  <title>Time2Pay</title>
+  <link rel="icon" type="image/png" href="logo-time2pay.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <div class="logo">
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/2721/2721615.png"
-        alt="Logo Euro"
-      />
+      <img src="logo-time2pay.png" alt="Time2Pay logo" />
     </div>
-
-    <h2>Paga Oraria</h2>
+    <h2>Time2Pay</h2>
 
     <label for="paga">Compenso (€):</label>
     <input type="number" id="paga" placeholder="Es: 1600" step="0.01" />
@@ -36,14 +24,7 @@
       </div>
       <div class="column">
         <label for="minuti">Minuti</label>
-        <input
-          type="number"
-          id="minuti"
-          placeholder="Es: 30"
-          step="1"
-          min="0"
-          max="59"
-        />
+        <input type="number" id="minuti" placeholder="Es: 30" step="1" min="0" max="59" />
       </div>
     </div>
 
@@ -83,7 +64,6 @@
     </div>
   </div>
 
-  <!-- Collegamento al JavaScript esterno -->
   <script src="script.js"></script>
 </body>
 </html>
