@@ -62,3 +62,17 @@ function calcolaPagaOraria() {
     <p>Paga oraria <strong>netta (stimata)</strong>: € ${pagaOrariaNetta.toFixed(2)}</p>
   `;
 }
+
+function resetForm() {
+  // Svuota tutti i campi di input
+  document.getElementById('paga').value = '';
+  document.getElementById('ore').value = '';
+  document.getElementById('minuti').value = '';
+  document.getElementById('inpsCheck').checked = false;
+  document.getElementById('commercialistaCheck').checked = false;
+  document.getElementById('pressioneFiscaleCheck').checked = false;
+  document.getElementById('pressione').value = '24';
+
+  // Pulisci il risultato
+  document.getElementById('risultato').innerHTML = '';
+}
