@@ -64,7 +64,6 @@ function calcolaPagaOraria() {
 }
 
 function resetForm() {
-  // Svuota tutti i campi di input
   document.getElementById('paga').value = '';
   document.getElementById('ore').value = '';
   document.getElementById('minuti').value = '';
@@ -72,7 +71,26 @@ function resetForm() {
   document.getElementById('commercialistaCheck').checked = false;
   document.getElementById('pressioneFiscaleCheck').checked = false;
   document.getElementById('pressione').value = '24';
-
-  // Pulisci il risultato
   document.getElementById('risultato').innerHTML = '';
 }
+
+// Gestione toggles esclusivi:
+// Se si attiva Pressione fiscale, si disattivano INPS e Commercialista; viceversa.
+const inpsToggle = document.getElementById('inpsCheck');
+const commercialistaToggle = document.getElementById('commercialistaCheck');
+const pressioneToggle = document.getElementById('pressioneFiscaleCheck');
+
+inpsToggle.addEventListener('change', () => {
+  if (inpsToggle.checked) pressioneToggle.checked = false;
+});
+
+commercialistaToggle.addEventListener('change', () => {
+  if (commercialistaToggle.checked) pressioneToggle.checked = false;
+});
+
+pressioneToggle.addEventListener('change', () => {
+  if (pressioneToggle.checked) {
+    inpsToggle.checked = false;
+    commercialistaToggle.checked = false;
+  }
+});
