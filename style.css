@@ -25,18 +25,12 @@ body {
 .logo {
   display: flex;
   justify-content: center;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 }
 
 .logo img {
-  max-width: 80px;
+  max-width: 120px;
   height: auto;
-}
-
-h2 {
-  text-align: center;
-  color: #ffffff;
-  margin-bottom: 1em;
 }
 
 label {
