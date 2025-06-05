@@ -136,6 +136,8 @@ input[type="number"] {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 button {
