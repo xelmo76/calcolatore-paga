@@ -1,25 +1,46 @@
-// Tutte le funzioni e i listener per i toggle devono partire solo dopo il caricamento del DOM
+// Attendo il caricamento del DOM prima di aggiungere listener
 document.addEventListener('DOMContentLoaded', () => {
   const inpsToggle = document.getElementById('inpsCheck');
   const commercialistaToggle = document.getElementById('commercialistaCheck');
   const pressioneToggle = document.getElementById('pressioneFiscaleCheck');
+  const btnCalcola = document.getElementById('btnCalcola');
 
+  // Al click di "Calcola", eseguo il calcolo
+  btnCalcola.addEventListener('click', () => {
+    calcolaPagaOraria();
+  });
+
+  // Toggle: se attivo INPS, deseleziono Pressione fiscale
   inpsToggle.addEventListener('change', () => {
     if (inpsToggle.checked) {
       pressioneToggle.checked = false;
+      // Se già erano stati inseriti dati e calcolato, rifaccio il calcolo
+      calcolaPagaOraria();
+    } else {
+      // Se lo disattivo, magari rifaccio il calcolo per togliere INPS
+      calcolaPagaOraria();
     }
   });
 
+  // Toggle: se attivo Commercialista, deseleziono Pressione fiscale
   commercialistaToggle.addEventListener('change', () => {
     if (commercialistaToggle.checked) {
       pressioneToggle.checked = false;
+      calcolaPagaOraria();
+    } else {
+      calcolaPagaOraria();
     }
   });
 
+  // Toggle: se attivo Pressione fiscale, deseleziono INPS e Commercialista
   pressioneToggle.addEventListener('change', () => {
     if (pressioneToggle.checked) {
       inpsToggle.checked = false;
       commercialistaToggle.checked = false;
+      calcolaPagaOraria();
+    } else {
+      // Se disattivo Pressione fiscale, rifaccio il calcolo per mostrare INPS/Commercialista eventualmente attivi
+      calcolaPagaOraria();
     }
   });
 });
